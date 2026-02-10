@@ -1,4 +1,4 @@
-package Modulo5;
+package com.poo.financeiro;
 
 public class Fornecedor {
 	private String nome;
