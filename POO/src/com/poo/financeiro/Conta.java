@@ -1,10 +1,12 @@
 package com.poo.financeiro;
 
-public class Conta {
+public abstract class Conta {
 	private String descricao;
 	private double valor;
 	private String dataVencimento;
 	protected SituacaoConta situacaoConta;
+	
+	public abstract void exibirDetalhes();
 
 	public Conta() {
 		this.situacaoConta = SituacaoConta.PENDENTE;
