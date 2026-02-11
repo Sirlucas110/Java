@@ -6,18 +6,18 @@ import java.util.Scanner;
 
 public class DesafioNumeros {
 	public static void main(String[] args) {
-		Scanner entrada = new Scanner(System.in);
-		
-		DecimalFormat formatador = new DecimalFormat("R$ #,##0.00");
+		try (Scanner entrada = new Scanner(System.in)) {
+			DecimalFormat formatador = new DecimalFormat("R$ #,##0.00");
 
-		double numero = entrada.nextDouble();
-		
-		BigDecimal bg = new BigDecimal(numero);
-		
-		BigDecimal percentual = bg.multiply(BigDecimal.TEN).divide(new BigDecimal(100));
-		
-		String valorFormatado = formatador.format(percentual.doubleValue());
-		
-		System.out.println(valorFormatado);
+			double numero = entrada.nextDouble();
+			
+			BigDecimal bg = new BigDecimal(numero);
+			
+			BigDecimal percentual = bg.multiply(BigDecimal.TEN).divide(new BigDecimal(100));
+			
+			String valorFormatado = formatador.format(percentual.doubleValue());
+			
+			System.out.println(valorFormatado);
+		}
 	}
 }
