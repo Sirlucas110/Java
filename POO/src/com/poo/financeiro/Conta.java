@@ -4,14 +4,13 @@ public abstract class Conta {
 	private String descricao;
 	private double valor;
 	private String dataVencimento;
-	protected SituacaoConta situacaoConta;
-	
+	protected SituacaoConta situacaoConta; 
+
 	public abstract void exibirDetalhes();
 
 	public Conta() {
 		this.situacaoConta = SituacaoConta.PENDENTE;
 	}
-
 
 	public void cancelar() {
 		if (SituacaoConta.PAGA.equals(getSituacaoConta())) {
@@ -19,15 +18,12 @@ public abstract class Conta {
 		} else if (SituacaoConta.CANCELADA.equals(getSituacaoConta())) {
 			System.out.println("Uma conta não pode ser cancelada se já está cancelada: " + this.getDescricao());
 		} else {
-			System.out.println(
-					"Cancelando conta " + this.getDescricao() + " no valor de " + this.valor + " e vencimento em "
-							+ this.getDataVencimento() + ". ");
+			System.out.println("Cancelando conta " + this.getDescricao() + " no valor de " + this.valor
+					+ " e vencimento em " + this.getDataVencimento() + ". ");
 
 			this.situacaoConta = SituacaoConta.CANCELADA;
 		}
 	}
-	
-	
 
 	public SituacaoConta getSituacaoConta() {
 		return situacaoConta;
