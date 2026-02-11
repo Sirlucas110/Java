@@ -1,0 +1,12 @@
+package com.poo.numeros;
+
+import java.text.DecimalFormat;
+
+public class TesteNumeros {
+	public static void main(String[] args) {
+		DecimalFormat format = new DecimalFormat("R$ #,##0.00");
+		double valorProduto = 1523.59;
+		
+		System.out.println(format.format(valorProduto));
+	}
+}
