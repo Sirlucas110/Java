@@ -15,17 +15,17 @@ public class ContaPagar extends Conta {
 		this.setDataVencimento(dataVencimento);
 	}
 
-	public void pagar() {
+	public void pagar() throws OperacaoContaException {
 		if (SituacaoConta.PAGA.equals(getSituacaoConta())) {
-			System.out.println("Uma conta não pode ser paga se já está paga: " + this.getDescricao());
+			throw new OperacaoContaException("Uma conta não pode ser paga se já está paga" + this.getDescricao());
 		} else if (SituacaoConta.CANCELADA.equals(getSituacaoConta())) {
-			System.out.println("Uma conta não pode ser paga se já está cancelada: " + this.getDescricao());
+			throw new OperacaoContaException("Uma conta não pode ser paga se já está cancfelada: " + this.getDescricao());
 		} else {
 			System.out
 					.println("Pagando conta " + this.getDescricao() + " no valor de " + this.getValor() + " e vencimento em "
 							+ this.getDataVencimento() + " do fornecedor " + this.getFornecedor().getNome());
 			
-			this.getSituacaoConta();
+			this.situacaoConta = SituacaoConta.PAGA;
 		}
 	}
 
